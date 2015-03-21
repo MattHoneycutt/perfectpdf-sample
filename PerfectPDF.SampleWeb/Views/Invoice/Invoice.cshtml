@@ -1,0 +1,58 @@
+﻿@model PerfectPDF.SampleWeb.Models.InvoiceViewModel
+
+@{
+	ViewBag.Title = "Invoice for " + Model.CustomerName;
+}
+
+<h2>
+	Invoice @Model.InvoiceNumber
+	<span class="pull-right">
+		@(Html.ActionLink<InvoiceController>(c => c.PrintInvoice(Model.InvoiceId), "Print", new{@class="btn btn-primary hidden-print"}))
+	</span>
+</h2>
+<h3>Purchase Date: @Model.PurchaseDate</h3>
+
+<div class="row">
+	<div class="well col-xs-4">
+		<h4>Customer:</h4>
+		@Model.CustomerName <br/>
+		@Model.CustomerStreet <br />
+		@Model.CustomerCity, @Model.CustomerState @Model.CustomerZip
+	</div>
+	<div class="col-xs-4">
+	</div>
+	<div class="well col-xs-4">
+		<h4>Send Payment To:</h4>
+		Super Awesome Parts Warehouse <br />
+		987 Business Park Drive <br />
+		Industry City, NY 54321
+	</div>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>Description</th>
+				<th>Quantity</th>
+				<th>Unit Price</th>
+				<th>Total</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model.Items)
+			{
+				<tr>
+					<td>@item.Description</td>
+					<td>@item.Quantity</td>
+					<td>$@item.UnitPrice</td>
+					<td>$@item.TotalPrice</td>
+				</tr>
+			}
+		</tbody>
+		<tfoot>
+			<tr>
+				<th colspan="4" class="text-right">
+					<h3>Grand Total: $@Model.GrandTotal</h3>
+				</th>
+			</tr>
+		</tfoot>
+	</table>
+</div>

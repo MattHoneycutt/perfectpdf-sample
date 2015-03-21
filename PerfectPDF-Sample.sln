@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectPDF.SampleWeb", "PerfectPDF.SampleWeb\PerfectPDF.SampleWeb.csproj", "{CA9247B1-0A33-49C5-9A5A-DD8AF42D0CD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectPdf.SampleApp", "PerfectPdf.SampleApp\PerfectPdf.SampleApp.csproj", "{FCA2F779-04D6-439D-BE16-7DD1CD339EA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA9247B1-0A33-49C5-9A5A-DD8AF42D0CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA9247B1-0A33-49C5-9A5A-DD8AF42D0CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA9247B1-0A33-49C5-9A5A-DD8AF42D0CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA9247B1-0A33-49C5-9A5A-DD8AF42D0CD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCA2F779-04D6-439D-BE16-7DD1CD339EA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCA2F779-04D6-439D-BE16-7DD1CD339EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCA2F779-04D6-439D-BE16-7DD1CD339EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCA2F779-04D6-439D-BE16-7DD1CD339EA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

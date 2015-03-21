@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title - My ASP.NET Application</title>
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top hidden-print">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				@Html.ActionLink("Perfect PDF Sample Application", "Index", "Home", null, new { @class = "navbar-brand" })
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li>@(Html.ActionLink<HomeController>(c => c.Index(), "Home"))</li>
+					<li>@(Html.ActionLink<DashboardController>(c => c.Dashboard(null), "Dashboard Demo"))</li>
+					<li>@(Html.ActionLink<SecureController>(c => c.SecretPage(), "Security Demo"))</li>
+					<li>@(Html.ActionLink<InvoiceController>(c => c.Invoice(new Guid("68B5B8EB-A03D-41D5-B6C5-872C0E3D4CA0")), "Invoice Demo"))</li>
+					<li>@(Html.ActionLink<FullPageController>(c => c.FullPageDemo(), "Full Page Demo"))</li>
+				</ul>
+				@Html.Partial("_LoginPartial")
+			</div>
+		</div>
+	</div>
+	<div class="container body-content">
+		@RenderBody()
+		<hr />
+		<footer>
+			<p>&copy; @DateTime.Now.Year - Perfect PDF</p>
+		</footer>
+	</div>
+
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	@RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿@{
+	ViewBag.Title = "Home Page";
+}
+
+<div class="text-center" style="margin: 1em 0">
+	<img src="~/Content/perfect-pdf-logo.png" alt="" />
+	<br/>
+	<a href="http://perfectpdf.net/buynow.html" target="_blank" class="btn btn-success btn-lg">
+		<i class="glyphicon glyphicon-credit-card"></i> 
+		Buy Now!
+	</a>
+</div>
+<p class="lead">
+	You can convert your Razor views to PDFs easily with PerfectPDF!  Click on a demo below to get started!
+</p>
+<div class="row">
+	<div class="col-md-4 well well-sm text-center">
+		<h4>Google Charts</h4>
+		<p>This demo shows how views with rich content, such as Google Charts, can be converted to PDF.</p>
+		<p>@(Html.ActionLink<DashboardController>(c => c.Dashboard(null), "View Demo", new { @class = "btn btn-primary" }))</p>
+	</div>
+	<div class="col-md-4 well well-sm text-center">
+		<h4>Session & Security</h4>
+		<p>This demo shows how user security and session information is still available when generating a PDF.</p>
+		<p>@(Html.ActionLink<SecureController>(c => c.SecretPage(), "View Demo", new { @class = "btn btn-primary" }))</p>
+	</div>
+	<div class="col-md-4 well well-sm text-center">
+		<h4>HTML Invoice</h4>
+		<p>This demo shows how you can create nice invoices using HTML, then render those invoices to PDF.</p>
+		<p>@(Html.ActionLink<InvoiceController>(c => c.Invoice(new Guid("68B5B8EB-A03D-41D5-B6C5-872C0E3D4CA0")), "View Demo", new { @class = "btn btn-primary" }))</p>
+	</div>
+</div>

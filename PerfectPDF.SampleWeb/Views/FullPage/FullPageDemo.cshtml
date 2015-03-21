@@ -1,0 +1,58 @@
+﻿@model dynamic
+
+@{
+	ViewBag.Title = "Full Page!";
+}
+
+<style>
+	html {
+		height: 100%;
+	}
+
+	.navbar {
+		display: none;
+	}
+
+	body, .body-content {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+	}
+
+	.body-content {
+		top: 50px;
+		top: 0;
+		background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjQsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhcGFfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSI2NHB4IiBoZWlnaHQ9IjY0cHgiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNjQgNjQiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGNpcmNsZSBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iNC44ODczIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1kYXNoYXJyYXk9IjAsOS4xMzA0IiBjeD0iMzEuOTE3IiBjeT0iMzEuODMzIiByPSIxNy40NDIiLz4NCjxjaXJjbGUgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjQuNDUzNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGN4PSIzMS45MTciIGN5PSIzMS44MzMiIHI9IjIzLjA4MyIvPg0KPGNpcmNsZSBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMy44NTE3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgY3g9IjMxLjkxNyIgY3k9IjMxLjgzMyIgcj0iMTEuMjM0Ii8+DQo8cG9seWdvbiBwb2ludHM9IjMxLjkxNywyMC43MTggMzQuMzU5LDI4LjIzNCA0Mi4yNjIsMjguMjM0IDM1Ljg2OCwzMi44OCAzOC4zMTEsNDAuMzk2IDMxLjkxNywzNS43NTEgMjUuNTIzLDQwLjM5NiAyNy45NjUsMzIuODggDQoJMjEuNTcxLDI4LjIzNCAyOS40NzUsMjguMjM0ICIvPg0KPC9zdmc+DQo=') /*/Content/captain.svg*/ !important;
+		background-repeat: no-repeat;
+		background-size: 800px 800px;
+		background-position-x: -450px;
+		background-position-y: 150px;
+	}
+
+	footer {
+		position: absolute;
+		bottom: 0;
+	}
+
+	.footer {
+		position: absolute;
+		bottom: 50px;
+	}
+</style>
+
+<h2>Full Page Demo</h2>
+<p class="lead">This is a full-page...</p>
+<p>
+	Here's an example of a full-page, print-friendly layout. @(Html.ActionLink<FullPageController>(c => c.FullPageDemoPdf(), "Try exporting this to PDF"))!
+</p>
+
+<p>
+	@(Html.ActionLink<HomeController>(c => c.Index(), "Go Back"))
+</p>
+
+<div class="footer">
+	This should be at the bottom of the printed page.
+	<div>Icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
+</div>

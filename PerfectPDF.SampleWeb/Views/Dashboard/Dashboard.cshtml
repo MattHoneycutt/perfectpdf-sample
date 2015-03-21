@@ -1,0 +1,120 @@
+﻿@using PerfectPDF.SampleWeb.Models
+@model DashboardViewModel
+
+@{
+	ViewBag.Title = "Dashboard";
+}
+
+
+<h2>
+	Sales Dashboard
+	<span class="pull-right">
+		@(Html.ActionLink<DashboardController>(c => c.PrintDashboard(DashboardType.Sales), "Export PDF", new { @class = "btn btn-primary" }))
+	</span>
+</h2>
+<h3>By Country</h3>
+<div class="row">
+	<div class="col-xs-12 col-md-6">
+		<div id="geo_chart_div" style="width: 100%; height: 100%"></div>
+	</div>
+	<div class="col-xs-6">
+		<div id="column_chart_div" style="width: 100%; height: 100%"></div>
+	</div>
+</div>
+<h3>By Salesman</h3>
+<div class="row">
+	<div class="col-xs-6">
+		<div id="org_chart_div" style="width: 100%; height: 100%"></div>
+	</div>
+	<div class="col-xs-6">
+		<div id="pie_chart_div" style="width: 100%; height: 100%"></div>
+	</div>
+</div>
+
+
+@section scripts
+{
+	<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+	<script>
+		google.load('visualization', '1', { 'packages': ['corechart', 'geochart', 'orgchart'] });
+
+		google.setOnLoadCallback(drawRegionsMap);
+		function drawRegionsMap() {
+			var data = google.visualization.arrayToDataTable([
+              ['Country', 'Sales'],
+              ['Germany', 200],
+              ['United States', 300],
+              ['Brazil', 400],
+              ['Canada', 500],
+              ['France', 600],
+              ['RU', 700]
+			]);
+
+			var options = {
+				height: "80%",
+				width: "90%"
+			};
+
+			var chart = new google.visualization.GeoChart(document.getElementById('geo_chart_div'));
+			chart.draw(data, options);
+		};
+
+		google.setOnLoadCallback(drawColumnChart);
+		function drawColumnChart() {
+			var data = google.visualization.arrayToDataTable([
+              ['Country', 'Sales'],
+              ['Germany', 200],
+              ['United States', 300],
+              ['Brazil', 400],
+              ['Canada', 500],
+              ['France', 600],
+              ['RU', 700]
+			]);
+
+			var options = {
+				legend: { position: "none" },
+				chartArea: { height: "70%", width: "80%" }
+			};
+
+			var chart = new google.visualization.ColumnChart(document.getElementById('column_chart_div'));
+			chart.draw(data, options);
+		}
+
+		google.setOnLoadCallback(drawOrgChart);
+		function drawOrgChart() {
+			var data = new google.visualization.DataTable();
+			data.addColumn('string', 'Name');
+			data.addColumn('string', 'Manager');
+			data.addColumn('string', 'ToolTip');
+			data.addRows([
+              [{ v: 'Mike', f: 'Mike<div style="color:red; font-style:italic">President</div>' }, '', 'The President'],
+              [{ v: 'Jim', f: 'Jim<div style="color:red; font-style:italic">Vice President</div>' }, 'Mike', 'VP'],
+              [{ v: 'Jane', f: 'Jane<div style="color:red; font-style:italic">Vice President</div>' }, 'Mike', 'VP'],
+              ['Alice', 'Jim', ''],
+              ['Bob', 'Jim', ''],
+              ['Carol', 'Jane', ''],
+              ['Scott', 'Jane', '']
+			]);
+			var chart = new google.visualization.OrgChart(document.getElementById('org_chart_div'));
+			chart.draw(data, { allowHtml: true });
+		}
+
+		google.setOnLoadCallback(drawPieChart);
+		function drawPieChart() {
+			var data = google.visualization.arrayToDataTable([
+              ['Person', 'Sales'],
+              ['Alice', 100],
+              ['Bob', 900],
+              ['Carol', 1000],
+              ['Scott', 500]
+			]);
+
+			var options = {
+				chartArea: { height: "70%", width: "80%" }
+			};
+
+			var chart = new google.visualization.PieChart(document.getElementById('pie_chart_div'));
+			chart.draw(data, options);
+		}
+	</script>
+}
